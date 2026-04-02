@@ -1,21 +1,23 @@
-# Vacuum Gripper Throwing Robot
+# Robotic Arm Throwing Simulation
 
 ## Overview
-This project simulates a robotic arm in Webots that uses a vacuum gripper to pick up an object and perform a controlled throwing motion. The goal is to demonstrate joint coordination, object manipulation, and physics-based interaction.
+
+This project simulates a robotic arm in Webots that picks up an object and performs a controlled throwing motion. The goal is to demonstrate joint coordination, object manipulation, and physics-based interaction within the Webots environment.
 
 ---
 
 ## Robot Setup
 
+
 The robot consists of:
 
 - 3 Degrees of Freedom (DOF):
-  - Yaw joint (base rotation)
-  - Pitch joint (shoulder movement)
-  - Roll joint (elbow movement)
-
-- End Effector:
-  - Vacuum gripper for object pickup and release
+  - Shoulder joint (controls horizontal movement):
+  - Elbow joint (controls arm bending):
+  - Wrist joint (controls the final arm rotation):
+  
+  - End Effector:
+    A gripper for object pickup and releasekup and release
 
 ---
 
@@ -23,19 +25,19 @@ The robot consists of:
 
 - Platform: Webots
 - Flat arena with physics enabled
-- Cardboard box as target object
+- A RoboCup ball as the target object
 
 ---
 
 ## Devices Used
 
 - Rotational Motors:
-  - yaw motor
-  - pitch motor
-  - roll motor
+  - Shoulder motor
+  - Elbow motor
+  - Wrist motor
 
-- Vacuum Gripper:
-  - Used for attaching and releasing the object
+- Gripper:
+  - Used for grabbing and releasing the object (RoboCup ball)
 
 ---
 
@@ -43,34 +45,34 @@ The robot consists of:
 
 The robot follows a sequence-based control approach:
 
-1. Rotate base to face the object
-2. Move arm to pickup position
-3. Activate vacuum gripper
-4. Lift the object
-5. Perform back swing motion
+1. Rotate the shoulder joint to align with the ball
+2. Move the arm to the pickup position using the elbow joint
+3. Close the gripper to pick up the ball
+4. Lift the ball by controlling the shoulder, elbow, and wrist joints
+5. Perform a backswing motion
 6. Execute throw
-7. Release object
+7. Release the ball by opening the gripper
 
 Control is implemented using:
 - `setPosition()` for joint control
-- Timed steps for motion execution
+- Timed steps for smooth motion execution
 
 ---
 
 ## Challenges
 
-- Aligning robot with object position
-- Positioning gripper correctly above the object
-- Ensuring proper suction timing
-- Tuning joint angles for realistic motion
+- Aligning the robot with the ball accurately
+- Positioning the gripper correctly above the ball for pickup
+- Ensuring smooth coordination between joints for the throwing motion
+- Tuning joint angles for realistic movement and ball release
 
 ---
 
 ## Final Result
 
 The robot is able to:
-- Align itself with the object
-- Pick it using a vacuum gripper
+- Align itself with the ball
+- Pick it up using the gripper
 - Perform a throwing motion
 - Release the object using simulation physics
 
